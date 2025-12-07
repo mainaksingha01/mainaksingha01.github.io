@@ -1,20 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<script>
-document.getElementById("open-stylip").onclick = function() {
-  document.getElementById("modal-stylip").style.display = "block";
-};
-
-document.getElementById("close-stylip").onclick = function() {
-  document.getElementById("modal-stylip").style.display = "none";
-};
-
-window.onclick = function(e) {
-  const modal = document.getElementById("modal-stylip");
-  if (e.target === modal) modal.style.display = "none";
-};
-</script>
 <head>
 <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -182,17 +168,18 @@ Shirsha Bose, Ankit Jha, Enrico Fini, <span style="color:#527bbd; font-weight:bo
 [ <a href="https://openaccess.thecvf.com/content/WACV2024/papers/Bose_STYLIP_Multi-Scale_Style-Conditioned_Prompt_Learning_for_CLIP-Based_Domain_Generalization_WACV_2024_paper.pdf" target="_blank">PDF</a> ] &nbsp;
 [ <a href="https://arxiv.org/pdf/2302.09251" target="_blank">arXiv</a> ] &nbsp;
 [ <a href="https://openaccess.thecvf.com/content/WACV2024/html/Bose_STYLIP_Multi-Scale_Style-Conditioned_Prompt_Learning_for_CLIP-Based_Domain_Generalization_WACV_2024_paper.html" target="_blank">HTML</a> ] &nbsp;
-[ <a href="#" id="openBib-stylip">BibTeX</a> ]
+[ <a href="#" onclick="toggleBib('stylip-bib'); return false;">BibTeX</a> ]
 </span>
-</p>
-</li>
 
-<div id="modal-stylip"
-    style="display:none; position:fixed; z-index:99999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6);">
-
-  <div style="background:#fff; margin:10% auto; padding:20px; width:60%; border-radius:8px;
-              font-family:monospace; white-space:pre;">
-    <span id="close-stylip" style="float:right; font-size:22px; cursor:pointer;">&times;</span>
+<pre id="stylip-bib" style="
+    display:none;
+    margin:20px 20px 0 20px;
+    padding:20px;
+    background:#faf5ff;
+    border-radius:10px;
+    font-family:monospace;
+    white-space:pre-wrap;
+">
 @inproceedings{bose2024stylip,
   title={Stylip: Multi-scale style-conditioned prompt learning for clip-based domain generalization},
   author={Bose, Shirsha and Jha, Ankit and Fini, Enrico and Singha, Mainak and Ricci, Elisa and Banerjee, Biplab},
@@ -200,8 +187,9 @@ Shirsha Bose, Ankit Jha, Enrico Fini, <span style="color:#527bbd; font-weight:bo
   pages={5542--5552},
   year={2024}
 }
-  </div>
-</div>
+</pre>
+</p>
+</li>
   
 </ol>
 
