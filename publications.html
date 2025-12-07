@@ -7,6 +7,89 @@
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
 <title>Publications</title>
 </head>
+
+<!-- Popup CSS -->
+<style type="text/css">
+.bib-popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+
+.bib-popup-content {
+  background: #fff;
+  width: 70%;
+  max-width: 700px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+  border: 1px solid #999;
+}
+
+.bib-close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: -10px;
+}
+</style>
+
+<!-- Popup Container -->
+<div id="bib-popup" class="bib-popup">
+  <div class="bib-popup-content">
+    <span id="bib-close" class="bib-close">&#10006;</span>
+    <pre id="bib-text"></pre>
+  </div>
+</div>
+
+<!-- XHTML-Safe JavaScript -->
+<script type="text/javascript">
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+    var popup = document.getElementById("bib-popup");
+    var bibText = document.getElementById("bib-text");
+    var closeBtn = document.getElementById("bib-close");
+
+    // Attach to all .bib-btn links
+    var buttons = document.getElementsByClassName("bib-btn");
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = this.getAttribute("data-target");
+            var bib = document.getElementById(target);
+            bibText.textContent = bib.textContent;
+            popup.style.display = "block";
+        });
+    }
+
+    closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    popup.addEventListener("click", function (event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+
+    document.addEventListener("keydown", function(event){
+        if (event.key === "Escape") {
+            popup.style.display = "none";
+        }
+    });
+});
+// ]]>
+</script>
+
 <body>
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
@@ -168,11 +251,10 @@ Shirsha Bose, Ankit Jha, Enrico Fini, <span style="color:#527bbd; font-weight:bo
 [ <a href="https://openaccess.thecvf.com/content/WACV2024/papers/Bose_STYLIP_Multi-Scale_Style-Conditioned_Prompt_Learning_for_CLIP-Based_Domain_Generalization_WACV_2024_paper.pdf" target="_blank">PDF</a> ] &nbsp;
 [ <a href="https://arxiv.org/pdf/2302.09251" target="_blank">arXiv</a> ] &nbsp;
 [ <a href="https://openaccess.thecvf.com/content/WACV2024/html/Bose_STYLIP_Multi-Scale_Style-Conditioned_Prompt_Learning_for_CLIP-Based_Domain_Generalization_WACV_2024_paper.html" target="_blank">HTML</a> ] &nbsp;
-[ <a href="javascript:void(0);" class="bib-btn" data-target="bib-stylip">BibTeX</a> ]
+[ <a href="#" class="bib-btn" data-target="bib-stylip">BibTeX</a> ]
 </span>
 
-<!-- Hidden BibTeX -->
-<pre id="bib-stylip" class="bibtex-block">
+<pre id="bib-stylip" class="bibtex-block" style="display:none;">
 @inproceedings{bose2024stylip,
   title={Stylip: Multi-scale style-conditioned prompt learning for clip-based domain generalization},
   author={Bose, Shirsha and Jha, Ankit and Fini, Enrico and Singha, Mainak and Ricci, Elisa and Banerjee, Biplab},
